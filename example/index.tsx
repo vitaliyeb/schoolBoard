@@ -1,12 +1,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import {Board} from "../src";
 // import { Thing } from '../dist/';
 
 const App = () => {
   return (
     <div>
-     ppspcaspcapsc
+        <Board />
     </div>
   );
 };

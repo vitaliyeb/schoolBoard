@@ -1,6 +1,11 @@
 import * as React from 'react';
+import styles from './style.module.styl'
 
-// Delete me
-export const Thing = () => {
-  return <div>the snozzberries taste like snozzberries</div>;
+
+export const Board = () => {
+  console.log(styles, 1)
+  return <div className={styles.board}>
+    asas
+    <canvas></canvas>
+  </div>;
 };
