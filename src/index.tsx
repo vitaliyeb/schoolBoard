@@ -1,13 +1,16 @@
-import * as React from 'react';
+import React, { CSSProperties } from 'react';
 
 
-const divStyle = {
-  backgroundColor: 'red'
+const boardStyle: CSSProperties  = {
+  position: 'relative',
+  width: '100vw',
+  height: '100vh'
 };
 
 export const Board = () => {
-  return (<div style={divStyle}>
 
+
+  return (<div style={boardStyle}>
     <canvas></canvas>
   </div>);
 };
