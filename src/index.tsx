@@ -1,11 +1,13 @@
 import * as React from 'react';
-import styles from './style.module.styl'
 
+
+const divStyle = {
+  backgroundColor: 'red'
+};
 
 export const Board = () => {
-  console.log(styles, 1)
-  return <div className={styles.board}>
-    asas
+  return (<div style={divStyle}>
+
     <canvas></canvas>
-  </div>;
+  </div>);
 };
