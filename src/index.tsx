@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 
 
 const boardStyle: CSSProperties  = {
@@ -8,9 +8,24 @@ const boardStyle: CSSProperties  = {
 };
 
 export const Board = () => {
+  const board_ref = useRef(null);
 
+  const [width, set_width] = useState(0);
+  const [height, set_height] = useState(0);
 
-  return (<div style={boardStyle}>
-    <canvas></canvas>
-  </div>);
+  const setSizeCanvas = () => {
+    console.log(board_ref.clientWidth)
+  }
+
+  useEffect(() => {
+    setSizeCanvas();
+    window.addEventListener('resize', setSizeCanvas)
+    return () => window.removeEventListener('resize', setSizeCanvas );
+  }, []);
+
+  return (
+      <div style={boardStyle} ref={board_ref}>
+        <canvas width={width} height={height}></canvas>
+      </div>
+  );
 };
