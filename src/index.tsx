@@ -25,7 +25,7 @@ export const Board = () => {
 
   return (
       <div style={boardStyle} ref={board_ref}>
-        <canvas width={width} height={height}></canvas>
+        <canvas width={width} height={height}> </canvas>
       </div>
   );
 };
