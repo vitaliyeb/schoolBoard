@@ -14,7 +14,8 @@ export const Board = () => {
   const [height, set_height] = useState(0);
 
   const setSizeCanvas = () => {
-    console.log(board_ref.clientWidth)
+    set_width(board_ref.clientWidth);
+    set_height(board_ref.clientHeight);
   }
 
   useEffect(() => {
