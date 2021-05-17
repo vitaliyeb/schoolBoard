@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b37e74b1-9541-4837-8cf4-d5354371a75f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redusers/board.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +103,9 @@
       <workItem from="1620874985331" duration="595000" />
       <workItem from="1620877599948" duration="137000" />
       <workItem from="1620911412422" duration="1558000" />
+      <workItem from="1620913352973" duration="35000" />
+      <workItem from="1621055049703" duration="5000" />
+      <workItem from="1621266402485" duration="201000" />
     </task>
     <servers />
   </component>
