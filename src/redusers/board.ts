@@ -1,9 +1,10 @@
 
 const initialState = {
-    count: 0
+    width: 0,
+    height: 0,
 };
 
 
-export default const reducer = (state = initialState ) => {
+export default (state = initialState ) => {
     return state;
 };
