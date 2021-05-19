@@ -1,32 +1,13 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import Board from './board';
 
-
-const boardStyle: CSSProperties  = {
-  position: 'relative',
-  width: '100vw',
-  height: '100vh'
-};
-
-export const Board = () => {
-  const board_ref = useRef(null);
-
-  const [width, set_width] = useState(0);
-  const [height, set_height] = useState(0);
-
-  const setSizeCanvas = () => {
-    set_width(board_ref.clientWidth);
-    set_height(board_ref.clientHeight);
-  }
-
-  useEffect(() => {
-    setSizeCanvas();
-    window.addEventListener('resize', setSizeCanvas)
-    return () => window.removeEventListener('resize', setSizeCanvas );
-  }, []);
+export const BoardWrapper = () => {
 
   return (
-      <div style={boardStyle} ref={board_ref}>
-        <canvas width={width} height={height}> </canvas>
-      </div>
+      <Provider store={store}>
+        <Board />
+      </Provider>
   );
 };
