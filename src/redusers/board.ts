@@ -1,13 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createReducer } from '@reduxjs/toolkit'
 
 
-export default createSlice({
-    name: 'board',
-    initialState: {
-        width: 0,
-        height: 0
-    },
-    reducers: {
+export default createReducer(initialState = {counter: 0}, () => {
 
-    }
-})
+});
