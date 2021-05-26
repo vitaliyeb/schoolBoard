@@ -1,4 +1,4 @@
-import React, {CSSProperties, useEffect, useRef, useState} from "react";
+import React, {CSSProperties, useEffect, useRef} from "react";
 
 const boardStyle: CSSProperties  = {
     position: 'relative',
@@ -9,12 +9,12 @@ const boardStyle: CSSProperties  = {
 export default () => {
     const board_ref = useRef(null);
 
-    const [width, set_width] = useState(0);
-    const [height, set_height] = useState(0);
+    // const [width, set_width] = useState(0);
+    // const [height, set_height] = useState(0);
 
     const setSizeCanvas = () => {
-        set_width(board_ref.clientWidth);
-        set_height(board_ref.clientHeight);
+        // set_width(board_ref.clientWidth);
+        // set_height(board_ref.clientHeight);
     }
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default () => {
 
     return (
         <div style={boardStyle} ref={board_ref}>
-            <canvas width={width} height={height}> </canvas>
+            {/*<canvas width={width} height={height}> </canvas>*/}
         </div>
     )
 }
