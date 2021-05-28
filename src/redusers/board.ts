@@ -7,7 +7,8 @@ const initialState = {
 
 export default createReducer(initialState, (builder) => {
     builder
-        .addCase(increment, (state) => {
+        .addCase(increment, (state, action ) => {
+            console.log('ac', action);
             ++state.counter
         })
 });
