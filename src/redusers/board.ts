@@ -1,14 +1,16 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { increment } from "../actions/actions";
+import { setSizeAction } from "../actions/actions";
 
 const initialState = {
-    counter: 0
+    size: {
+        width: 0,
+        height: 0
+    }
 }
 
 export default createReducer(initialState, (builder) => {
     builder
-        .addCase(increment, (state, action ) => {
-            console.log('ac', action);
-            ++state.counter
+        .addCase(setSizeAction, (state, action ) => {
+            state.size = action.payload;
         })
 });

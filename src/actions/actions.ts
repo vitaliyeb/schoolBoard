@@ -1,7 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const increment = createAction('increment');
+const setSizeAction = createAction('SET_SIZE');
 
 export {
-    increment
+    setSizeAction
 };

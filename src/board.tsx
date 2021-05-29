@@ -1,6 +1,6 @@
 import React, {CSSProperties, useEffect, useRef} from "react";
 import  { useSelector, useDispatch } from "react-redux";
-import {increment} from "./actions/actions";
+import {setSizeAction} from "./actions/actions";
 
 const boardStyle: CSSProperties  = {
     position: 'relative',
@@ -10,7 +10,7 @@ const boardStyle: CSSProperties  = {
 
 export default () => {
     const board_ref = useRef(null);
-    const counter = useSelector(state => state.counter.counter)
+    const size = useSelector(state => state.size)
     const dispatch = useDispatch();
 
     // const [width, set_width] = useState(0);
@@ -26,11 +26,11 @@ export default () => {
         window.addEventListener('resize', setSizeCanvas)
         return () => window.removeEventListener('resize', setSizeCanvas );
     }, []);
-    console.log(counter)
+    console.log(size)
     return (
         <div style={boardStyle} ref={board_ref}>
-            <p>{ counter }</p>
-            <button onClick={() => dispatch(increment(21))}>+</button>
+            <p>{size.width}</p>
+            <button onClick={() => dispatch(setSizeAction({ width: 100, height: 100 }))}>+</button>
             {/*<canvas width={width} height={height}> </canvas>*/}
         </div>
     )
