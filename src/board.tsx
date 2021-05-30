@@ -6,20 +6,25 @@ import {setSizeAction} from "./actions/actions";
 const boardStyle: CSSProperties  = {
     position: 'relative',
     width: '100vw',
+    overflow: 'hidden',
     height: '100vh'
 };
 
 export default () => {
-    const board_ref = useRef(null);
+    const board_ref = useRef<HTMLDivElement>(null);
     const { size : { width, height } } = useSelector((state: RootStore) => state )
+    const dispatch = useDispatch();
     const resizeHandler = () => {
-        console.log('sas')
-    }
+        const el = board_ref.current;
+        el && dispatch(setSizeAction({ width: el.offsetWidth, height: el.offsetHeight }));
+    };
 
     useEffect(() => {
+        resizeHandler();
         window.addEventListener('resize', resizeHandler);
         return () => window.removeEventListener('resize', resizeHandler);
     }, []);
+
 
     return (
         <div style={boardStyle} ref={board_ref}>
