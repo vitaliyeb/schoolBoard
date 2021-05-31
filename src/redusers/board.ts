@@ -1,18 +1,22 @@
 import {createReducer, PayloadAction} from '@reduxjs/toolkit'
-import { setSizeAction } from "../actions/actions"
+import { setSizeAction, setContextAction } from "../actions/actions"
 import boardState from './boardInterface'
-import { setSizePayloadInterface } from "../actions/actionInterface";
+import { setSizePayloadInterface, setContextPayloadType } from "../actions/actionInterface";
 
 const initialState: boardState = {
     size: {
         width: 0,
         height: 0
-    }
+    },
+    context: 0
 }
 
 export default createReducer(initialState, (builder) => {
     builder
         .addCase(setSizeAction, (state, action: PayloadAction<setSizePayloadInterface> ) => {
             state.size = action.payload;
+        })
+        .addCase(setContextAction, (state, action: PayloadAction<setContextPayloadType> ) => {
+            state.context = action.payload.context;
         })
 });

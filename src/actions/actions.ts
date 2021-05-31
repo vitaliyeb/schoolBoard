@@ -1,8 +1,10 @@
 import { createAction } from "@reduxjs/toolkit";
-import { setSizePayloadInterface } from "../actions/actionInterface";
+import { setSizePayloadInterface, setContextPayloadType } from "../actions/actionInterface";
 
 const setSizeAction = createAction<setSizePayloadInterface> ('SET_SIZE');
+const setContextAction = createAction<setContextPayloadType> ('SET_CONTEXT');
 
 export {
-    setSizeAction
+    setSizeAction,
+    setContextAction
 };
