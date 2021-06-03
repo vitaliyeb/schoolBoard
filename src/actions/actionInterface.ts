@@ -6,5 +6,5 @@ export interface setSizePayloadInterface {
 }
 
 export interface setContextPayloadType {
-    context: number
+    context: CanvasRenderingContext2D
 };

@@ -3,5 +3,5 @@ export default interface boardState {
         width: number,
         height: number
     },
-    context: number
+    context: CanvasRenderingContext2D | null
 }

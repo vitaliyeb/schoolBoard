@@ -8,7 +8,7 @@ const initialState: boardState = {
         width: 0,
         height: 0
     },
-    context: 0
+    context: null
 }
 
 export default createReducer(initialState, (builder) => {
