@@ -12,6 +12,7 @@ const boardStyle: CSSProperties  = {
 
 export default () => {
     const board_ref = useRef<HTMLDivElement>(null);
+    const canvas_ref = useRef<HTMLCanvasElement>(null);
     const { size : { width, height } } = useSelector((state: RootStore) => state )
     const dispatch = useDispatch();
     const resizeHandler = () => {
@@ -20,6 +21,8 @@ export default () => {
     };
 
     useEffect(() => {
+        const el = canvas_ref.current;
+        console.log(el && el.getContext('2d'))
         resizeHandler();
         window.addEventListener('resize', resizeHandler);
         return () => window.removeEventListener('resize', resizeHandler);
@@ -28,7 +31,7 @@ export default () => {
 
     return (
         <div style={boardStyle} ref={board_ref}>
-            <canvas width={width} height={height}> </canvas>
+            <canvas width={width} height={height} ref={canvas_ref}> </canvas>
         </div>
     )
 }
