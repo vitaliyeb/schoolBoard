@@ -1,7 +1,7 @@
 import React, {CSSProperties, useEffect, useRef} from "react";
 import  { useSelector, useDispatch } from "react-redux";
 import { RootStore } from './store';
-import {setSizeAction} from "./actions/actions";
+import { setSizeAction } from "./actions/actions";
 
 const boardStyle: CSSProperties  = {
     position: 'relative',
@@ -15,15 +15,20 @@ export default () => {
     const canvas_ref = useRef<HTMLCanvasElement>(null);
     const { size : { width, height } } = useSelector((state: RootStore) => state )
     const dispatch = useDispatch();
+
     const resizeHandler = () => {
         const el = board_ref.current;
         el && dispatch(setSizeAction({ width: el.offsetWidth, height: el.offsetHeight }));
     };
 
+    const setContext = () => {
+        // const el = canvas_ref.current;
+        // el && dispatch(setContextAction({ context: el.getContext('2d')}));
+    }
+
     useEffect(() => {
-        const el = canvas_ref.current;
-        console.log(el && el.getContext('2d'))
         resizeHandler();
+        setContext();
         window.addEventListener('resize', resizeHandler);
         return () => window.removeEventListener('resize', resizeHandler);
     }, []);
