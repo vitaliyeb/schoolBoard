@@ -2,7 +2,9 @@ import React, {CSSProperties, useEffect, useRef} from "react";
 import  { useSelector, useDispatch } from "react-redux";
 import { RootStore } from './store';
 import { setSizeAction } from "./actions/actions";
+import BoardInteraction from './boardInteraction';
 
+const board = new BoardInteraction();
 const boardStyle: CSSProperties  = {
     position: 'relative',
     width: '100vw',
@@ -22,8 +24,10 @@ export default () => {
     };
 
     const setContext = () => {
-        // const el = canvas_ref.current;
-        // el && dispatch(setContextAction({ context: el.getContext('2d')}));
+        const canvasElement = canvas_ref.current;
+        if (canvasElement) {
+            board.setContext(canvasElement);
+        }
     }
 
     useEffect(() => {
