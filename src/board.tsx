@@ -3,6 +3,7 @@ import  { useSelector, useDispatch } from "react-redux";
 import { RootStore } from './store';
 import { setSizeAction } from "./actions/actions";
 import BoardInteraction from './boardInteraction';
+import Panel from './panel'
 
 const board = new BoardInteraction();
 const boardStyle: CSSProperties  = {
@@ -40,6 +41,7 @@ export default () => {
 
     return (
         <div style={boardStyle} ref={board_ref}>
+            <Panel />
             <canvas width={width} height={height} ref={canvas_ref}> </canvas>
         </div>
     )

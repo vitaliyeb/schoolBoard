@@ -10,4 +10,6 @@ export default class implements boardInteractionInterface {
     setContext = (canvasElement: HTMLCanvasElement) => {
         this.context = canvasElement.getContext('2d');
     }
+
+
 }
