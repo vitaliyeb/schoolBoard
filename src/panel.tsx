@@ -14,7 +14,15 @@ const panelWrapperStyle:CSSProperties = {
 const Panel = () => {
     return (
         <div style={panelWrapperStyle}>
-            <div></div>
+            <div>указатель</div>
+            <div>figures</div>
+            <div>kist</div>
+            <div>lastik</div>
+            <div>ukazka</div>
+            <div>color</div>
+            <div>weight</div>
+            <div>image</div>
+            <div>clear</div>
         </div>
     )
 };
