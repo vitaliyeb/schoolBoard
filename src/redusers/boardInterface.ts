@@ -8,8 +8,8 @@ export default interface boardState {
         weight: number
     },
     events: {
-        mouseDown: () => void,
-        mouseUp: () => void,
-        click: () => void
+        mouseDown?: () => void,
+        mouseUp?: () => void,
+        click?: () => void
     }
 }

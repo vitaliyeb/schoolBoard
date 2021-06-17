@@ -8,6 +8,11 @@ const initialState: boardState = {
         width: 0,
         height: 0
     },
+    properties: {
+        color: '#000',
+        weight: 3
+    },
+    events: {}
 }
 
 export default createReducer(initialState, (builder) => {
