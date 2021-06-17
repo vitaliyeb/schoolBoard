@@ -6,5 +6,10 @@ export default interface boardState {
     properties: {
         color: string,
         weight: number
+    },
+    events: {
+        mouseDown: () => void,
+        mouseUp: () => void,
+        click: () => void
     }
 }
