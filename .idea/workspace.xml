@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b37e74b1-9541-4837-8cf4-d5354371a75f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redusers/board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redusers/board.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redusers/boardInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redusers/boardInterface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/panel.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +128,8 @@
       <workItem from="1623300110430" duration="42000" />
       <workItem from="1623344608175" duration="915000" />
       <workItem from="1623826406647" duration="94000" />
-      <workItem from="1623944969406" duration="1928000" />
+      <workItem from="1623944969406" duration="3173000" />
+      <workItem from="1624082010287" duration="4740000" />
     </task>
     <servers />
   </component>
