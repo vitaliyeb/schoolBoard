@@ -57,9 +57,9 @@ const Panel = () => {
     return (
         <div style={panelWrapperStyle}>
             {
-                panelConfig.map(({base}) => {
+                panelConfig.map(({base}, idx) => {
                     return (
-                        <div style={buttonWrapper}>
+                        <div key={idx} style={buttonWrapper}>
                             <img style={buttonIcon} src={base} alt=""/>
                         </div>
                     )

@@ -1,7 +1,4 @@
 import React, {CSSProperties, useEffect, useRef} from "react";
-import  { useSelector, useDispatch } from "react-redux";
-import { RootStore } from './store';
-import { setSizeAction } from "./actions/actions";
 import BoardInteraction from './boardInteraction';
 import Panel from './panel'
 
@@ -16,12 +13,11 @@ const boardStyle: CSSProperties  = {
 export default () => {
     const board_ref = useRef<HTMLDivElement>(null);
     const canvas_ref = useRef<HTMLCanvasElement>(null);
-    const { size : { width, height } } = useSelector((state: RootStore) => state )
-    const dispatch = useDispatch();
+    const { render, canvasHeight, canvasWidth, setSize } = board;
 
     const resizeHandler = () => {
         const el = board_ref.current;
-        el && dispatch(setSizeAction({ width: el.offsetWidth, height: el.offsetHeight }));
+        el && setSize({ width: el.offsetWidth, height: el.offsetHeight });
     };
 
     const setContext = () => {
@@ -34,7 +30,12 @@ export default () => {
     useEffect(() => {
         resizeHandler();
         setContext();
-        window.addEventListener('resize', resizeHandler);
+
+        render();
+
+        window.addEventListener('resize', resizeHandler)
+
+
         return () => window.removeEventListener('resize', resizeHandler);
     }, []);
 
@@ -42,7 +43,7 @@ export default () => {
     return (
         <div style={boardStyle} ref={board_ref}>
             <Panel />
-            <canvas width={width} height={height} ref={canvas_ref}> </canvas>
+            <canvas width={canvasWidth} height={canvasHeight} ref={canvas_ref}> </canvas>
         </div>
     )
 }
