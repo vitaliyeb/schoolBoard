@@ -1,4 +1,4 @@
-import React, {CSSProperties, useEffect, useRef} from "react";
+import React, {CSSProperties, useEffect, useRef, useState} from "react";
 import BoardInteraction from './boardInteraction';
 import Panel from './panel'
 
@@ -13,11 +13,20 @@ const boardStyle: CSSProperties  = {
 export default () => {
     const board_ref = useRef<HTMLDivElement>(null);
     const canvas_ref = useRef<HTMLCanvasElement>(null);
-    const { render, canvasHeight, canvasWidth, setSize } = board;
+    const [size, setSize] = useState({width: 0, height: 0})
+
+    const { render } = board;
 
     const resizeHandler = () => {
         const el = board_ref.current;
-        el && setSize({ width: el.offsetWidth, height: el.offsetHeight });
+        if (el) {
+            const size = {
+                width: el.offsetWidth,
+                height: el.offsetHeight
+            }
+            setSize(size);
+            board.setSize(size);
+        }
     };
 
     const setContext = () => {
@@ -43,7 +52,7 @@ export default () => {
     return (
         <div style={boardStyle} ref={board_ref}>
             <Panel />
-            <canvas width={canvasWidth} height={canvasHeight} ref={canvas_ref}> </canvas>
+            <canvas width={size.width} height={size.height} ref={canvas_ref}> </canvas>
         </div>
     )
 }
