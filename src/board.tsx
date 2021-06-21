@@ -1,4 +1,4 @@
-import React, {CSSProperties, useEffect, useRef, useState} from "react";
+import React, {CSSProperties, useEffect, useRef} from "react";
 import BoardInteraction from './boardInteraction';
 import Panel from './panel'
 
@@ -11,48 +11,25 @@ const boardStyle: CSSProperties  = {
 };
 
 export default () => {
-    const board_ref = useRef<HTMLDivElement>(null);
     const canvas_ref = useRef<HTMLCanvasElement>(null);
-    const [size, setSize] = useState({width: 0, height: 0})
 
-    const { render } = board;
-
-    const resizeHandler = () => {
-        const el = board_ref.current;
-        if (el) {
-            const size = {
-                width: el.offsetWidth,
-                height: el.offsetHeight
-            }
-            setSize(size);
-            board.setSize(size);
-        }
-    };
-
-    const setContext = () => {
-        const canvasElement = canvas_ref.current;
-        if (canvasElement) {
-            board.setContext(canvasElement);
-        }
-    }
+    const { render, setCanvasSize, setContext } = board
 
     useEffect(() => {
-        resizeHandler();
-        setContext();
-
+        setContext(canvas_ref.current);
+        setCanvasSize();
         render();
 
-        window.addEventListener('resize', resizeHandler)
+        window.addEventListener('resize', setCanvasSize)
 
-
-        return () => window.removeEventListener('resize', resizeHandler);
+        return () => window.removeEventListener('resize', setCanvasSize);
     }, []);
 
 
     return (
-        <div style={boardStyle} ref={board_ref}>
+        <div style={boardStyle}>
             <Panel />
-            <canvas width={size.width} height={size.height} ref={canvas_ref}> </canvas>
+            <canvas ref={canvas_ref}> </canvas>
         </div>
     )
 }

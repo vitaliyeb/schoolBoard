@@ -13,18 +13,24 @@ export default class implements boardInteractionInterface {
         this.canvasHeight = 0
     }
 
-    setContext = (canvasElement: HTMLCanvasElement) => {
-        this.context = canvasElement.getContext('2d');
+    setContext = (canvasElement: HTMLCanvasElement | null) => {
+        if (canvasElement) {
+            this.context = canvasElement.getContext('2d');
+        }
     }
 
-    setSize = ({ width, height }: {width: number, height: number}) => {
-        this.canvasHeight = height;
-        this.canvasWidth = width;
+    setCanvasSize = () => {
+        const { context } = this;
+        if(context) {
+            const { offsetWidth, offsetHeight } = context.canvas.parentNode as HTMLDivElement;
+            this.canvasWidth = offsetWidth;
+            this.canvasHeight = offsetHeight;
+            context.canvas.width = offsetWidth;
+            context.canvas.height = offsetHeight;
+        }
     }
 
     painBackground = () => {
-        const { context } = this;
-        console.log(context)
 
     }
 
